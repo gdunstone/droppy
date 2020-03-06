@@ -72,6 +72,8 @@ $ docker run --name droppy -p 127.0.0.1:8989:8989 silverwind/droppy
 
 This method uses automatic volumes for `/config` and `/files` which can be overridden through `-v /srv/droppy/config:/config` and `-v /srv/droppy/files:/files`. If you're using existing files, it's advisable to use `-e UID=1000 -e GID=1000` to get new files written with correct ownership.
 
+You can also set the default privileged username and password using `-e DROPPY_ADMIN_USER=admin -e DROPPY_ADMIN_PASSWORD=[your admin password]`.
+
 To update a docker installation, run
 
 ```sh
