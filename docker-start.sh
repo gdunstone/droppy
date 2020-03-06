@@ -13,12 +13,12 @@ echo -e "droppy:x:${GID}:droppy\n" >> /etc/group
 mkdir -p /config
 mkdir -p /files
 
-chown -R droppy:droppy /config
-chown droppy:droppy /files
-
-
 if [[ -n "$DROPPY_ADMIN_USER" && -n "$DROPPY_ADMIN_PASSWORD" ]]; then
     droppy add "$DROPPY_ADMIN_USER" "$DROPPY_ADMIN_PASSWORD" true
 fi
+
+chown -R droppy:droppy /config
+chown droppy:droppy /files
+
 
 exec /bin/su -p -s "/bin/sh" -c "exec /usr/bin/droppy start --color -f /files -c /config" droppy
